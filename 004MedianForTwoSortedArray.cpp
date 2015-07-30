@@ -9,11 +9,10 @@
 *               
 **********************************************************************************/
 
-
-
-
-
-
+/*
+This problem is hard. The answer is duplicated from: https://leetcode.com/discuss/35275/c-implementation-o-log-m-n-with-vector-int-as-parameters
+This problem needs more review in weekend.
+*/
 
 #include <iostream>
 #include <vector>
