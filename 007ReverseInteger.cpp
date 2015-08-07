@@ -48,5 +48,6 @@ int main(){
 	int re2 = solution.reverse(y);
 	cout << "re1: " << re1 << endl;
 	cout << "re2: " << re2 << endl;
+	return 0;
 }
 */
