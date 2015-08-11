@@ -1,6 +1,6 @@
 // Source : https://oj.leetcode.com/problems/
 // Author : Tony
-// Date   : 11-08-1015
+// Date   : 11-08-2015
 
 
 /***********************************************************************
@@ -16,7 +16,6 @@
 ***********************************************************************/
 
 #include <iostream>
-#include <string>
 using namespace std;
 
 class Solution{
