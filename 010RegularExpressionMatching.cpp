@@ -44,41 +44,41 @@ public:
 	}
 private:
 	bool Match(int i, int j, string s, string p){
-		cout << "test: " << i << " " << j << endl;
+		//cout << "test: " << i << " " << j << endl;
 		if(i >= s.size() && j >= p.size()){
-			cout << "1" << endl;
+			//cout << "1" << endl;
 			return true;
 		}
 		if(i >= s.size()){
-			cout << "2" << endl;
+			//cout << "2" << endl;
 			return true;
 		}
 		if(j >= p.size()){
-			cout << "3" << endl;
+			//cout << "3" << endl;
 			return false;
 		}
 		if(p[j] == s[i]){
-			cout << "4" << endl;
+			//cout << "4" << endl;
 			return Match(i+1,j+1,s,p);
 		}
 		if(p[j] == '.'){
-			cout << "5" << endl;
+			//cout << "5" << endl;
 			return Match(i+1,j+1,s,p);
 		}
 		if(p[j] == '*' && p[j-1] == '.'){
-			cout << ".*" << endl;
+			//cout << ".*" << endl;
 			return true;
 		}
 		if(p[j] == '*' && s[i] == s[i-1]){
-			cout << "6" << endl;
+			//cout << "6" << endl;
 			return Match(i+1,j,s,p);
 		}
 		if(p[j] == '*' && s[i] != s[i-1]){
-			cout << "7" << endl;
+			//cout << "7" << endl;
 			return Match(i,j+1,s,p);
 		}
 		else{
-			cout << "8" << endl;
+			//cout << "8" << endl;
 			return false;
 		}
 	}
