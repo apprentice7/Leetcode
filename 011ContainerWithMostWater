@@ -1,0 +1,51 @@
+// Source : https://oj.leetcode.com/problems/
+// Author : Tony
+// Date   : 13-08-2015
+
+/********************************************************************************** 
+* 
+* Given n non-negative integers a1, a2, ..., an, where each represents a point at coordinate (i, ai). 
+* n vertical lines are drawn such that the two endpoints of line i is at (i, ai) and (i, 0). 
+* 
+* Find two lines, which together with x-axis forms a container, such that the container contains the most water.
+* 
+* Note: You may not slant the container.
+* 
+**********************************************************************************/
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class Solution {
+public:
+    int maxArea(vector<int>& height) {
+        int area = 0;
+        int min = 0;
+        int maxA = 0;
+        for (int i = 0; i < height.size(); i++){
+            for(int j = i; j < height.size(); j++){
+                if(height.at(i) < height.at(j)) min = height.at(i);
+                else min = height.at(j);
+                area = (j - i) * min;
+                if(maxA < area) maxA = area;
+            }
+        }
+        return maxA;
+    }
+};
+
+/* //for testing
+int main() {
+	vector<int> height;
+	int h[] = {1,5,7,5,1};
+	height.assign(h,h+5);
+	Solution solution;
+	int output;
+	output = solution.maxArea(height);
+
+	cout << "max: " << output << endl;
+	cout << "finished" << endl;
+	return 0;
+}
+*/
