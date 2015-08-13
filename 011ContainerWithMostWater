@@ -20,6 +20,7 @@ using namespace std;
 class Solution {
 public:
     int maxArea(vector<int>& height) {
+    /*
         int area = 0;
         int min = 0;
         int maxA = 0;
@@ -29,6 +30,30 @@ public:
                 else min = height.at(j);
                 area = (j - i) * min;
                 if(maxA < area) maxA = area;
+            }
+        }
+        return maxA;
+    */
+        int area = 0;
+        int min = 0;
+        int maxA = 0;
+        int left = 0;
+        int right = height.size()-1;
+        while(left < right){
+            if(height[left] < height[right]) min = height[left];
+            else min = height[right];
+            area = min * (right - left);
+            if(maxA < area) maxA = area;
+
+            if(height[left] < height[right]){
+                do{
+                    left++;
+                }while(left < right && height[left - 1] >= height[left]);
+            }
+            else{
+                do{
+                    right--;
+                }while(left < right && height[right+1] >= height[right]);
             }
         }
         return maxA;
