@@ -137,3 +137,50 @@ int main(){
 	return 0;
 }
 */
+
+
+//Quadratic algorithm
+//Similarly in Two Sum problem: choose one number and use Two Sum to find the others
+//This solution can be accepted by Leetcode.com
+class Solution2 {
+public:
+    vector<vector<int> > threeSum(vector<int>& nums) {
+
+	vector< vector<int> > output;
+
+	sort(nums.begin(),nums.end());
+	int n = nums.size();
+
+	for(int i=0; i<n-2; i++){
+		if(i>0 && nums[i-1] == nums[i]) continue;
+		int first = nums[i];
+		int left = i+1;
+		int right = n-1;
+
+		while(left < right){
+			int second = nums[left];
+			int third = nums[right];
+			if(first+second+third == 0) {
+				vector<int> temp;
+				temp.push_back(first);
+				temp.push_back(second);
+				temp.push_back(third);
+				output.push_back(temp);
+				while(left<n && nums[left] == nums[left+1]) left++;
+				while(right>0 && nums[right] == nums[right-1]) right--;
+				left++;
+				right--;
+			}
+			else if(first+second+third > 0){
+				while(right>0 && nums[right] == nums[right-1]) right--;
+				right--;
+			}
+			else{
+				while(left<n && nums[left] == nums[left+1]) left++;
+				left++;
+			}
+		}
+	}
+	return output;
+    }
+};
