@@ -42,18 +42,18 @@ public:
     	//cout << negative[0] << negative[1] << negative[2] << endl;   
     	//cout << positive[0] << positive[1] << positive[2] << positive[3] << endl;
 		  
-		  //three "0"
-	  	for(int z=0; z<positive.size();z++){
-	  		if (positive[z] == 0){
-	  			times++;
-	  		}
+	//three "0"
+	for(int z=0; z<positive.size();z++){
+	  	if (positive[z] == 0){
+	  		times++;
 	  	}
-	  	if(times>=3){
-		  	int arr[]={0,0,0};
-		  	vector<int> tempout;
-		  	tempout.assign(arr,arr+3);
-		  	output = OutputInsert(output,tempout);
-		  }
+	}
+	if(times>=3){
+		int arr[]={0,0,0};
+		vector<int> tempout;
+		tempout.assign(arr,arr+3);
+		output = OutputInsert(output,tempout);
+	}
     	
     	//two negative + one positive
     	for(int n1=0; n1<negative.size()-1;n1++){
@@ -80,7 +80,7 @@ public:
     		}
     	}
 		  
-		  //two positive + one negative
+	//two positive + one negative
     	for(int p1=0; p1<positive.size()-1;p1++){
     		for(int p2=p1+1;p2<positive.size();p2++){
     			for(int n1=0;n1<negative.size();n1++){
