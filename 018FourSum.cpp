@@ -1,3 +1,26 @@
+// Source : https://oj.leetcode.com/problems/
+// Author : Tony
+// Date   : 20-08-2015
+
+/********************************************************************************** 
+* Given an array S of n integers, are there elements a, b, c, and d in S such that a + b + c + d = target? 
+* Find all unique quadruplets in the array which gives the sum of target.
+* Note:
+* Elements in a quadruplet (a,b,c,d) must be in non-descending order. (ie, a ≤ b ≤ c ≤ d)
+* The solution set must not contain duplicate quadruplets.
+*     For example, given array S = {1 0 -1 0 -2 2}, and target = 0.
+*     A solution set is:
+*     (-1,  0, 0, 1)
+*     (-2, -1, 1, 2)
+*     (-2,  0, 0, 2)              
+**********************************************************************************/
+
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
 class Solution {
 public:
     vector < vector<int> > fourSum(vector<int>& nums, int target) {
@@ -53,11 +76,11 @@ public:
 /* //For testing
 int main(){
 	Solution test;
-	int arr[] = {-476,-471,-457,-449,-444,-444,-423,-419,-417,-404,-398,-392,-382,-382,-369,-358,-352,-352,-344,-305,-300,-297,-291,-272,-271,-268,-266,-253,-249,-222,-172,-161,-126,-124,-106,-104,-101,-101,-89,-71,-68,-67,-45,-37,-26,-23,-18,-17,-15,7,17,29,73,77,84,84,106,118,122,128,140,146,191,201,214,220,234,240,257,264,296,301,314,320,332,336,339,363,396,422,435,457,477,478,478,485,487};
-	//int arr[]={1,0,-1,0,-2,2};
+	//int arr[] = {-476,-471,-457,-449,-444,-444,-423,-419,-417,-404,-398,-392,-382,-382,-369,-358,-352,-352,-344,-305,-300,-297,-291,-272,-271,-268,-266,-253,-249,-222,-172,-161,-126,-124,-106,-104,-101,-101,-89,-71,-68,-67,-45,-37,-26,-23,-18,-17,-15,7,17,29,73,77,84,84,106,118,122,128,140,146,191,201,214,220,234,240,257,264,296,301,314,320,332,336,339,363,396,422,435,457,477,478,478,485,487};
+	int arr[]={1,0,-1,0,-2,2};
 	vector<int> numbers;
-	numbers.assign(arr,arr+87);
-	vector < vector<int> > re = test.fourSum(numbers,-6401);
+	numbers.assign(arr,arr+6);
+	vector < vector<int> > re = test.fourSum(numbers,0);
 	for(int tt=0;tt<re.size();tt++){
 		cout << re[tt][0] <<","<< re[tt][1] <<","<< re[tt][2] <<","<< re[tt][3] << endl;
 	}
