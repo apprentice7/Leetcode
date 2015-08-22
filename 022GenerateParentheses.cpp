@@ -8,6 +8,10 @@
 * "((()))", "(()())", "(())()", "()(())", "()()()"              
 **********************************************************************************/
 
+/* algorithm attributes to 
+https://github.com/haoel/leetcode/blob/master/algorithms/generateParentheses/generateParentheses.cpp
+*/
+
 #include <iostream>
 #include <string>
 #include <vector>
