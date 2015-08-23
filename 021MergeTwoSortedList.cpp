@@ -74,23 +74,6 @@ public:
         }
         return output;
     }
-private:
-	ListNode* InitNode(ListNode* head, int v){
-		head->val = v;
-		head->next = NULL;
-		return head;
-	}
-	ListNode* AddNode(ListNode* head, int v){
-		ListNode* PtrToNode = new ListNode;
-		PtrToNode->val = v;
-		PtrToNode->next = NULL;
-		ListNode* cur = head;
-		while(cur->next != NULL){
-			cur = cur->next;
-		}
-		cur->next = PtrToNode;
-		return head;
-	}
 };
 /* //For testing
 int main(){
