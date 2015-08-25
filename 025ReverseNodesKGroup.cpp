@@ -61,7 +61,7 @@ public:
 		}
 	}
 };
-
+/* //For testing
 int main(){
 	Solution test;
 	ListNode* Node1 = new ListNode(1);
@@ -76,10 +76,11 @@ int main(){
 	Node4->next = Node5;
 	Node5->next = Node6;
 
-	ListNode* result = test.swapPairs(Node1,4);
+	ListNode* result = test.reverseKGroup(Node1,4);
 	while(result != NULL){
 		cout << result->val << endl;
 		result = result->next;
 	}
 	return 0;
 }
+*/
