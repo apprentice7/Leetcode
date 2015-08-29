@@ -13,6 +13,7 @@
 using namespace std;
 
 /*Solution written by haoel*/
+/*Use bit operation to perform binary dividing operation*/
 class Solution{
 public:
 int divide(int dividend, int divisor) {
