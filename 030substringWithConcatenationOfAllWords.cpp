@@ -19,6 +19,7 @@
 #include <map>
 using namespace std;
 
+//This solution cannot pass time limit requirement.
 class Solution {
 public:
     vector<int> findSubstring(string s, vector<string>& words) {
