@@ -1,8 +1,14 @@
 // Source : https://oj.leetcode.com/problems/
 // Author : Tony
-// Date   : 10-09-2015
+// Date   : 11-09-2015
 
-
+/********************************************************************************** 
+* Write a program to solve a Sudoku puzzle by filling the empty cells.
+* Empty cells are indicated by the character '.'.
+* You may assume that there will be only one unique solution.
+* A sudoku puzzle...
+* ...and its solution numbers marked in red.              
+**********************************************************************************/
 
 #include <iostream>
 #include <vector>
@@ -14,12 +20,12 @@ bool matrix[9][9] = {false};
 
 class Solution {
 public:
-    void solveSudoku(vector<vector<char>>& board) {
+    void solveSudoku(vector<vector<char> >& board) {
         if(!isValidSudoku(board)) return;
 		recursiveSudoku(board,0,0);
     }
 
-	bool recursiveSudoku(vector<vector<char>>& board, int rowNum, int colNum){
+	bool recursiveSudoku(vector<vector<char> >& board, int rowNum, int colNum){
 		if(rowNum>=9) return true;
 		if(colNum>=9) return recursiveSudoku(board, rowNum+1, 0);
 		if(board[rowNum][colNum] != '.') return recursiveSudoku(board,rowNum,colNum+1);
@@ -45,7 +51,7 @@ public:
 		return false;
 	}
 
-	bool isValidSudoku(vector<vector<char>>& board) {
+	bool isValidSudoku(vector<vector<char> >& board) {
 		for(int r=0; r<board.size(); r++){
 			for(int c=0; c<board.size(); c++){
 				if(!isdigit(board[r][c])) continue;
@@ -61,14 +67,47 @@ public:
     }
 };
 
- //For testing
+/* //For testing
 int main(){
 	Solution test;
-	string arr1[]={"5","3",".",".",}
-	string arr[] = {"53..7....","6..195...",".98....6.","8...6...3","4..8.3..1","7...2...6",".6....28.","...419..5","....8..79"};
-	vector<int> v;
-	v.assign(arr,arr+9);
+	vector < vector<char> > v;
+	vector<char> tt;
+	char arr1[] = {'5','3','.','.','7','.','.','.','.'};
+	char arr2[] = {'6','.','.','1','9','5','.','.','.'};
+	char arr3[] = {'.','9','8','.','.','.','.','6','.'};
+	char arr4[] = {'8','.','.','.','6','.','.','.','3'};
+	char arr5[] = {'4','.','.','8','.','3','.','.','1'};
+	char arr6[] = {'7','.','.','.','2','.','.','.','6'};
+	char arr7[] = {'.','6','.','.','.','.','2','8','.'};
+	char arr8[] = {'.','.','.','4','1','9','.','.','5'};
+	char arr9[] = {'.','.','.','.','8','.','.','7','9'};
+	
+	tt.assign(arr1,arr1+9);
+	v.push_back(tt);
+	tt.assign(arr2,arr2+9);
+	v.push_back(tt);
+	tt.assign(arr3,arr3+9);
+	v.push_back(tt);
+	tt.assign(arr4,arr4+9);
+	v.push_back(tt);
+	tt.assign(arr5,arr5+9);
+	v.push_back(tt);
+	tt.assign(arr6,arr6+9);
+	v.push_back(tt);
+	tt.assign(arr7,arr7+9);
+	v.push_back(tt);
+	tt.assign(arr8,arr8+9);
+	v.push_back(tt);
+	tt.assign(arr9,arr9+9);
+	v.push_back(tt);
+	
 	test.solveSudoku(v);
-
+	for(int i=0; i<9; i++){
+		for(int j=0; j<9; j++){
+			cout << v[i][j] << " ";
+			if(j == 8) cout << endl;
+		}
+	}
 	return 0;
 }
+*/
