@@ -10,6 +10,17 @@
 * Your algorithm should run in O(n) time and uses constant space.            
 **********************************************************************************/
 
+/*
+In O(n) time and constant space, we need to sort this array.
+The positive interger is our own target. And in O(n) time, we can
+only go through every element by once.
+
+Key point: put the positive number in the right position of the array.
+i.e: put number 5 in nums[4], put number 1 in nums[0].
+Omit the other numbers like negative integer or integer greater than the 
+size of the array.
+*/
+
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -27,6 +38,12 @@ public:
 				swap(nums[digit-1], nums[i]);
 				digit = nums[i];
 			}
+			/* //for testing
+			for(int j=0; j<n; j++){
+				cout << nums[j] << " ";
+			}
+			cout << endl;
+			*/
 		}
 		for(int j=0; j<n; j++){
 			if(nums[j] != j+1) return j+1;
@@ -34,7 +51,7 @@ public:
 		return n+1;
     }
 };
- //For testing
+/* //For testing
 int main(){
 	Solution test;
 	vector<int> v;
@@ -44,3 +61,4 @@ int main(){
 
 	return 0;
 }
+*/
