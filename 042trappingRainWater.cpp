@@ -33,11 +33,10 @@ public:
         if(n<2) return 0;
         int area=0;
         int left=0;
-        
-        int gap = 0;
+        int right=0;
 
         for(int i=0; i<n; i++){
-        	cout << "start: " << i << endl;
+        	//cout << "start: " << i << endl;
         	left = height[i];
         	int j=i+1;
         	int flag=0;
@@ -47,25 +46,38 @@ public:
         			break;	
         		}
         		j++;
-        		//cout << "test2: " << j << endl;
         	}
-        	//cout << "i: " << i << endl;
-        	//cout << "j: " << j << endl;
-        	//cout << "left: " << left << endl;
         	if(flag == 1 && (j-i)>1 ){
         		for(int k=i+1; k<j; k++){
         			area = area + left - height[k];
-        			//cout << "area: " << area << endl;
         		}
         		i = j-1;
         	}
-        	else{
-        		//cout << "no" << endl;
-        	}
         }
+
+		for(int i=n-1; i>=0; i--){
+			right = height[i];
+			int j = i-1;
+			int flag = 0;
+			while(j>=0){
+				if(height[i] > right){
+					flag=1;
+					break;
+				}
+				j--;
+			}
+			if(flag==1 && (i-j)>1 ) {
+				for(int k=i-1; k>j; k--){
+					area = area + right - height[k];
+				}
+				i = j+1;
+			}
+		}
+
         return area;
     }
 };
+
 
 int main(){
 	Solution test;
