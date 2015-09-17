@@ -1,10 +1,10 @@
+// Source : https://oj.leetcode.com/problems/
+// Author : Tony
+// Date   : 17-09-2015
 
 /********************************************************************************** 
-* 
 * Given two numbers represented as strings, return multiplication of the numbers as a string.
-* 
 * Note: The numbers can be arbitrarily large and are non-negative.
-*               
 **********************************************************************************/
 
 #include <iostream>
@@ -38,7 +38,7 @@ public:
 			result.push_back(set);
 			set.clear();
 		}
-		//int TempSize = result.size();
+
 		int mark = 0;
 		int i = 0;
 		int rem = 0;
@@ -70,6 +70,7 @@ public:
     }
 };
 
+/* //For testing
 int main(){
 	Solution test;
 	string x = "140";
@@ -78,3 +79,4 @@ int main(){
 	cout << test.multiply(x, y) << endl;
 	return 0;
 }
+*/
