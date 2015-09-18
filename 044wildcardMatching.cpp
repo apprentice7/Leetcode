@@ -20,9 +20,7 @@
 **********************************************************************************/
 
 #include <iostream>
-#include <vector>
 #include <string>
-#include <algorithm>
 using namespace std;
 
 class Solution {
@@ -32,51 +30,29 @@ public:
         int m = p.size();
         int j = 0;
         int i = 0;
-        if(n == 0 && n==m) return true;
-        if(n == 0 || m==0) return false;
-        if(m > n) return false;
-        //for(int i=0; i<n; i++){
+		int imark = -1;
+		int jmark = -1;
         while(i<n){
-        	cout << "s[i]: " << s[i] << endl;
-        	cout << "p[j]: " << p[j] << endl;
-        	cout << endl;
-        	if(j>=m) return false;
-        	if(s[i] == p[j] || p[j] == '?') {
-        		j++;
-        		i++;
-        	}
-        	else if(p[j] == '*'){
-        		if(j==m-1) return true;
-        		else if(j==m-2){
-        			if(p[j+1]==s[i] && i==n-1) return true;
-        			else if(p[j+1]==s[i] && i!=n-1) return false;
-        			else{
-        				i++;
-        			}
-        		} 
-        		else if(j<m-2){
-        			if(p[j+1] == s[i]){
-        				i++;
-        				j=j+2;
-        			}
-        			else{
-        				i++;
-        			}
-        		}	
-        	}
-        	else{
-        		cout << "error match" << endl;
-        		return false;
-        	}
+			if(j < m && p[j] =='?' || s[i] == p[j]){
+				i++;
+				j++;
+			}
+        	else if(j < m && p[j] == '*'){
+				imark = i;
+				jmark = j;
+				j++;
+			}
+			else if(jmark != -1){
+				j = jmark +1;
+				i = ++imark;
+			}
+			else return false;
        	}
-       	cout << "i: " << i << endl;
-       	cout << "j: " << j << endl;
-       	if(j==m-1 && p[j]=='*') return true;
-       	if(j < m) return false;
-       	else return true;
+		while(j < m && p[j] == '*') j++;
+		return j==m;
     }
 };
-
+/* //For testing
 int main(){
 	Solution test;
 	string a= "abefcdgiescdfimde";
@@ -84,4 +60,4 @@ int main(){
 	cout << test.isMatch(a,b) << endl;
 	return 0;
 }
-
+*/
