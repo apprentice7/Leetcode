@@ -18,7 +18,20 @@
 * isMatch("ab", "?*") → true
 * isMatch("aab", "c*a*b") → false
 **********************************************************************************/
-
+/*
+idea:
+1. a loop to go through string s and string p.
+2. if s[i] == p[j] or p[j] == '?' move to next char
+3. if p[j] == *, record the position of i and j, continue compare s[i] with p[j+1]
+4. once not equal, check if position marker jmark is -1:
+	if -1 return false
+	if not -1 restore i and j to imark+1 and jmark+1. And let imark+1
+5. go through s[i] to jump out.
+	if i<n still holds but j<m not return false;
+	if i<n not holds j<m holds:
+		if p[j] and after are all * return true
+		else return false
+*/
 #include <iostream>
 #include <string>
 using namespace std;
@@ -42,8 +55,12 @@ public:
 				jmark = j;
 				j++;
 			}
+			//This part form another loop
+			//if the there is a * before, try to loop i by s[i]==*
+			//every * is a start of p string
 			else if(jmark != -1){
 				j = jmark +1;
+				//imark++;
 				i = ++imark;
 			}
 			else return false;
@@ -52,6 +69,7 @@ public:
 		return j==m;
     }
 };
+
 /* //For testing
 int main(){
 	Solution test;
