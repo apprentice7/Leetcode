@@ -1,6 +1,6 @@
-// Source : https://oj.leetcode.com/problems/jump-game-ii/
-// Author : Hao Chen
-// Date   : 2014-07-18
+// Source : https://oj.leetcode.com/problems/
+// Author : Tony
+// Date   : 21-09-2015
 
 /********************************************************************************** 
 * Given an array of non-negative integers, you are initially positioned at the first index of the array.
