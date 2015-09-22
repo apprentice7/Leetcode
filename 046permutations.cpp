@@ -86,9 +86,7 @@ public:
             //take each number to the first place
             for (int j=pos+1; j<vv[i].size(); j++) {
                 vector<int> v = vv[i];
-                int t = v[j]; 
-                v[j] = v[pos];
-                v[pos] = t;
+		iter_swap(v.begin()+j,v.begin()+pos);
                 vv.push_back(v);
             }
         }
