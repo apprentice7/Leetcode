@@ -17,6 +17,12 @@
 #include <math.h>
 using namespace std;
 
+/* idea: (from https://leetcode.com/discuss/422/is-there-better-solution-for-jump-game-ii?show=422#q422)
+	loop every number to see:
+	if the previous longest path is lower or equal to this.
+	if so, let step add by one and let previous longest path to next longest path
+	continue count the next longest path.
+*/
 class Solution{
 public:
 	int jump(vector<int>& nums){
