@@ -1,7 +1,32 @@
+// Source : https://oj.leetcode.com/problems/
+// Author : Tony
+// Date   : 23-09-2015
+
+/********************************************************************************** 
+* Given an array of strings, group anagrams together.
+* For example, given: ["eat", "tea", "tan", "ate", "nat", "bat"], 
+* Return:
+* [
+*   ["ate", "eat","tea"],
+*   ["nat","tan"],
+*   ["bat"]
+* ]
+* Note:
+* For the return value, each inner list's elements must follow the lexicographic order.
+* All inputs will be in lower-case.
+**********************************************************************************/
+
 #include <iostream>
 #include <vector>
 #include <string>
+#include <map>
+#include <algorithm>
 using namespace std;
+
+/* idea:
+	1: sort the strs before find
+	2: add sorted strs into map for compare and push back
+*/
 
 class Solution {
 public:
@@ -9,49 +34,31 @@ public:
         int n = strs.size();
 		vector<vector<string> > output;
 		if(n<1) return output;
+		map<string, int> dict;
 
 		for(int i=0; i<n; i++){
 			string temp = strs[i];
-			vector<string> tmpVector;
-			tmpVector.push_back(temp);
-			int len = temp.size();
-
-			if(output.size() == 0) {
-				output.push_back(tmpVector);
+			sort(temp.begin(), temp.end());
+			
+			if(dict.find(temp) == dict.end()){
+				dict[temp] = output.size();
+				vector<string> toAdd;
+				toAdd.push_back(strs[i]);
+				output.push_back(toAdd);
 			}
 			else{
-				bool flag = false;
-				for(int j=0; j<output.size() && flag == false; j++){
-					temp = strs[i];
-					string t = output[j][0];
-					int f = 0;
-					for(int tPara=0; tPara<t.size(); tPara++){
-						for(int sPara=0; sPara<temp.size(); sPara++){
-							if(t[tPara] == temp[sPara]){
-								t.erase(t.begin()+tPara);
-								temp.erase(temp.begin()+sPara);
-								tPara = -1;
-								break;
-							}
-						}
-					}
-					if(t.size() == 0 && temp.size() == 0){
-						output[j].push_back(strs[i]);
-						flag = true;
-					}
-
-				}
-				if(flag == false){
-					output.push_back(tmpVector);
-				}
-			}
+				output[dict[temp]].push_back(strs[i]);
+			}	
+		}
+		for(int k=0; k<output.size(); k++){
+				sort(output[k].begin(), output[k].end());
 		}
 		return output;
 
     }
 };
 
-//For testing
+/* //For testing
 int main(){
 	Solution test;
 	string arr[]={"eat", "tea", "tan", "ate", "nat", "bat"};
@@ -69,3 +76,4 @@ int main(){
 
 	return 0;
 }
+*/
