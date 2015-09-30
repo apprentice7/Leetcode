@@ -23,36 +23,8 @@ struct Interval {
 };
 
 /* 
-*  using a map to sort the Interval.start 
-*  better solution: self-defined function by sort()
-*/
-
-/* adopted from: https://github.com/haoel/leetcode/blob/master/algorithms/mergeIntervals/mergeIntervals.cpp
- //Two factos sorting [start:end]
-bool compare(const Interval& lhs, const Interval& rhs){
-    return (lhs.start==rhs.start) ? lhs.end < rhs.end : lhs.start < rhs.start;
-}
-
-vector<Interval> merge(vector<Interval> &intervals) {
-
-    vector<Interval> result;
-
-    if (intervals.size() <= 0) return result;
-    //sort the inervals. Note: using the customized comparing function.
-    sort(intervals.begin(), intervals.end(), compare);
-    for(int i=0; i<intervals.size(); i++) { 
-        int size = result.size();
-        // if the current intervals[i] is overlapped with previous interval.
-        // merge them together
-        if( size>0 && result[size-1].end >= intervals[i].start) {
-            result[size-1].end = max(result[size-1].end, intervals[i].end); 
-        }else{
-            result.push_back(intervals[i]);
-        }
-    }
-    
-    return result;
-}
+  using a map to sort the Interval.start 
+  better solution: self-defined function by sort()
 */
 class Solution {
 public:
@@ -96,6 +68,34 @@ public:
 		return output;
     }
 };
+
+/* adopted from: https://github.com/haoel/leetcode/blob/master/algorithms/mergeIntervals/mergeIntervals.cpp
+ //Two factos sorting [start:end]
+bool compare(const Interval& lhs, const Interval& rhs){
+    return (lhs.start==rhs.start) ? lhs.end < rhs.end : lhs.start < rhs.start;
+}
+
+vector<Interval> merge(vector<Interval> &intervals) {
+
+    vector<Interval> result;
+
+    if (intervals.size() <= 0) return result;
+    //sort the inervals. Note: using the customized comparing function.
+    sort(intervals.begin(), intervals.end(), compare);
+    for(int i=0; i<intervals.size(); i++) { 
+        int size = result.size();
+        // if the current intervals[i] is overlapped with previous interval.
+        // merge them together
+        if( size>0 && result[size-1].end >= intervals[i].start) {
+            result[size-1].end = max(result[size-1].end, intervals[i].end); 
+        }else{
+            result.push_back(intervals[i]);
+        }
+    }
+    
+    return result;
+}
+*/
 
 /* //For testing
 int main(){
