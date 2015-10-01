@@ -1,6 +1,6 @@
 // Source : https://oj.leetcode.com/problems/
 // Author : Tony
-// Date   : 21-09-2015
+// Date   : 01-10-2015
 
 /********************************************************************************** 
 * Given a set of non-overlapping intervals, insert a new interval into the intervals (merge if necessary).
