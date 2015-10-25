@@ -37,11 +37,13 @@ public:
         }
         for(int slow=0,fast=0; fast<n; fast++){
             char c = s[fast];
-            if(tmap.find(c) != tmap.end()){
-                window[c]++;
-                if(window[c] <= tmap[c]) letterCount++;
+            if(tmap.find(c) != tmap.end()){ //char is find in string t
+                window[c]++; // insert char into window
+                if(window[c] <= tmap[c]) letterCount++; // letterCount indicate find all chars in t
             }
+            // shrink the window
             if(letterCount >= m){
+                // s[slow] is not found in tmap or s[slow] count is more than that in tmap
                 while(tmap.find(s[slow]) == tmap.end() || window[s[slow]] > tmap[s[slow]]){
                     window[s[slow]]--;
                     slow++;
@@ -54,7 +56,6 @@ public:
                 slow++;
                 letterCount--;
             }
-            
         }
         return output;
     }
