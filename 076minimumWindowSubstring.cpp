@@ -16,6 +16,8 @@
  *   will always be only one unique minimum window in S.
  **********************************************************************************/
 
+
+/* idea adopted from: https://leetcode.com/discuss/18584/sharing-my-straightforward-o-n-solution-with-explanation */
 #include <iostream>
 #include <string>
 #include <unordered_map>
