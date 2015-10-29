@@ -72,12 +72,11 @@ public:
 
 /* //For testing
 int main(){
-	Solution test;
-	int his[] ={2,1,5,6,2,3};
-	vector<int> v;
-	v.assign(his,his+6);
-	cout<< test.largestRectangleArea(v) << endl;
-
-	return 0;
+  Solution test;
+  int his[] ={2,1,5,6,2,3};
+  vector<int> v;
+  v.assign(his,his+6);
+  cout<< test.largestRectangleArea(v) << endl;
+  return 0;
 }
 */
