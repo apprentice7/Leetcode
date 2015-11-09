@@ -22,6 +22,25 @@
 #include <math.h>
 using namespace std;
 
+/* A very smart way in mathematics:  (num >> 1) ^ num; 
+  http://en.wikipedia.org/wiki/Gray_code 
+*/
+
+class Solution {
+public:
+	vector<int> grayCode(int n) {         
+	    vector<int> ret;   
+	    int size = 1 << n;   
+	    for(int i = 0; i < size; ++i) {
+	        ret.push_back((i >> 1)^i);   
+	    }
+	    return ret;   
+	}
+};
+
+
+
+/* A very stupid way by myself*/
 class Solution {
 public:
     vector<int> grayCode(int n) {
