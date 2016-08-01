@@ -40,6 +40,36 @@ struct TreeNode {
     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
 
+<<<<<<< HEAD
+=======
+// A better iterative solution using stack:
+/*
+class Solution {
+public:
+    vector<int> inorderTraversal(TreeNode *root) {
+        vector<TreeNode*> stack;
+        vector<int> v;
+        
+        while(stack.size()>0 || root!=NULL){
+            if (root!=NULL){
+                stack.push_back(root);
+                root = root->left;
+            }else{
+                if (stack.size()>0) {
+                    root = stack.back();
+                    stack.pop_back();
+                    v.push_back(root->val);
+                    root = root->right;
+                }
+            }
+        }
+        return v;
+    }
+};
+*/
+
+
+>>>>>>> 39b04954ba463736bc4d675a3e953858797f6887
 class Solution {
 public:
     vector<int> inorderTraversal(TreeNode* root) {
@@ -61,6 +91,10 @@ public:
     		int temp = node->val;
     		TreeNode * l = node->left;
     		TreeNode * r = node->right;
+<<<<<<< HEAD
+=======
+    		//node = node->left;
+>>>>>>> 39b04954ba463736bc4d675a3e953858797f6887
     		traversalHelper(l, output);
     		output.push_back(temp);
     		if(node->right == NULL){
@@ -71,6 +105,7 @@ public:
     }
 };
 
+<<<<<<< HEAD
  //For testing
 int main(){
 	Solution test;
@@ -79,6 +114,12 @@ int main(){
 	//TreeNode *a = new TreeNode(1);
 	q.left = &a;
 
+=======
+/* //For testing
+int main(){
+	Solution test;
+	TreeNode *a = new TreeNode(1);
+>>>>>>> 39b04954ba463736bc4d675a3e953858797f6887
 	TreeNode *b = new TreeNode(2);
 	TreeNode *c = new TreeNode(3);
 	TreeNode *d = new TreeNode(4);
@@ -89,7 +130,11 @@ int main(){
 	TreeNode *j = new TreeNode(9);
 	f->left=b;
 	f->right=g;
+<<<<<<< HEAD
 	b->left=&a;
+=======
+	b->left=a;
+>>>>>>> 39b04954ba463736bc4d675a3e953858797f6887
 	b->right=d;
 	d->left=c;
 	d->right=e;
@@ -104,4 +149,8 @@ int main(){
 	cout << endl;
 	return 0;
 }
+<<<<<<< HEAD
 
+=======
+*/
+>>>>>>> 39b04954ba463736bc4d675a3e953858797f6887
